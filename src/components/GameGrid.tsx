@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
+import { GameTile, WeatherType, DayNightType } from '../types/gameTypes';
 import grootCharacter from '@/assets/groot-character.png';
 import treeSapling from '@/assets/tree-sapling.png';
 import treeMature from '@/assets/tree-mature.png';
@@ -7,23 +8,17 @@ import flowers from '@/assets/flowers.png';
 import terrainDesolate from '@/assets/terrain-desolate.png';
 import terrainLush from '@/assets/terrain-lush.png';
 
-export interface GameTile {
-  id: string;
-  x: number;
-  y: number;
-  terrain: 'desolate' | 'restored' | 'flourishing';
-  plant?: 'sapling' | 'mature-tree' | 'flowers';
-  isAnimating?: boolean;
-}
-
 export interface GameGridProps {
   tiles: GameTile[];
   onTileClick: (tile: GameTile) => void;
   selectedPlantType: string | null;
   canPlant: (tile: GameTile) => boolean;
+  showGrid?: boolean;
+  weather?: WeatherType;
+  dayNight?: DayNightType;
 }
 
-export const GameGrid = ({ tiles, onTileClick, selectedPlantType, canPlant }: GameGridProps) => {
+export const GameGrid = ({ tiles, onTileClick, selectedPlantType, canPlant, showGrid, weather, dayNight }: GameGridProps) => {
   const [hoveredTile, setHoveredTile] = useState<string | null>(null);
 
   const getTerrainImage = (terrain: GameTile['terrain']) => {
@@ -45,6 +40,11 @@ export const GameGrid = ({ tiles, onTileClick, selectedPlantType, canPlant }: Ga
       case 'mature-tree':
         return treeMature;
       case 'flowers':
+        return flowers;
+      case 'mushroom':
+      case 'crystal-tree':
+      case 'healing-herb':
+        // Use flowers as placeholder for new plant types
         return flowers;
       default:
         return null;

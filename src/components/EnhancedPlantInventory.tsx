@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { GameStats } from '../types/gameTypes';
-import { Leaf, Flower, TreePine, Mushroom, Crystal, Heart } from 'lucide-react';
+import { Leaf, Flower, TreePine, CircleDot, Gem, Heart } from 'lucide-react';
 
 interface EnhancedPlantInventoryProps {
   stats: GameStats;
@@ -41,7 +41,7 @@ const PLANT_DATA = {
   },
   mushroom: {
     name: 'Mushroom',
-    icon: <Mushroom className="w-4 h-4" />,
+    icon: <CircleDot className="w-4 h-4" />,
     cost: { lifeForce: 8, water: 2, nutrients: 5 },
     description: 'Decomposes waste, enriches soil',
     rarity: 'uncommon',
@@ -50,7 +50,7 @@ const PLANT_DATA = {
   },
   'crystal-tree': {
     name: 'Crystal Tree',
-    icon: <Crystal className="w-4 h-4" />,
+    icon: <Gem className="w-4 h-4" />,
     cost: { lifeForce: 50, water: 20, nutrients: 15 },
     description: 'Mystical energy conductor',
     rarity: 'legendary',
