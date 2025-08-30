@@ -1,7 +1,11 @@
-import { GrootGame } from "../components/GrootGame";
+import { GameCanvas } from "../components/GameCanvas";
 
 const Index = () => {
-  return <GrootGame />;
+  return (
+    <div className="w-full h-screen">
+      <GameCanvas />
+    </div>
+  );
 };
 
 export default Index;
