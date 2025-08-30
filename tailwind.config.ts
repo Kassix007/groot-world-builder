@@ -52,6 +52,12 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Game-specific colors
+				'life-force': 'hsl(var(--life-force))',
+				'desolate': 'hsl(var(--desolate))',
+				'flourishing': 'hsl(var(--flourishing))',
+				'cosmic-energy': 'hsl(var(--cosmic-energy))',
+				'groot-bark': 'hsl(var(--groot-bark))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

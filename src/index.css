@@ -2,41 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Project I-Am-Groot Design System
+Nature restoration theme with cosmic elements
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core cosmic-forest theme */
+    --background: 220 15% 8%;
+    --foreground: 120 25% 85%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Game UI surfaces */
+    --card: 220 20% 12%;
+    --card-foreground: 120 20% 90%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 25% 10%;
+    --popover-foreground: 120 20% 90%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Groot/Life theme colors */
+    --primary: 120 60% 45%;      /* Vibrant life green */
+    --primary-foreground: 220 15% 8%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 35 40% 25%;     /* Groot bark brown */
+    --secondary-foreground: 120 25% 85%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 15% 15%;        /* Desolate terrain */
+    --muted-foreground: 220 10% 60%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 280 70% 60%;       /* Cosmic purple */
+    --accent-foreground: 220 15% 8%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 80% 55%;
+    --destructive-foreground: 220 15% 8%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* UI elements */
+    --border: 220 20% 20%;
+    --input: 220 20% 15%;
+    --ring: 120 60% 45%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Game-specific colors */
+    --life-force: 120 80% 50%;      /* Bright growth energy */
+    --desolate: 30 15% 25%;         /* Dead/barren land */
+    --flourishing: 100 60% 40%;     /* Mature forest */
+    --cosmic-energy: 260 80% 70%;   /* Space magic */
+    --groot-bark: 25 30% 30%;       /* Groot's natural color */
+    
+    /* Gradients */
+    --gradient-growth: linear-gradient(135deg, hsl(var(--desolate)), hsl(var(--primary)), hsl(var(--flourishing)));
+    --gradient-cosmic: linear-gradient(45deg, hsl(var(--accent)), hsl(var(--cosmic-energy)));
+    --gradient-life: radial-gradient(circle, hsl(var(--life-force) / 0.8), hsl(var(--primary) / 0.4));
+    
+    /* Shadows and effects */
+    --shadow-growth: 0 0 20px hsl(var(--life-force) / 0.5);
+    --shadow-cosmic: 0 0 30px hsl(var(--accent) / 0.4);
+    --shadow-card: 0 8px 32px hsl(220 25% 5% / 0.6);
+
+    /* Animations */
+    --animation-grow: grow 0.8s ease-out;
+    --animation-pulse: pulse-life 2s ease-in-out infinite;
+    --animation-float: float 3s ease-in-out infinite;
 
     --sidebar-background: 0 0% 98%;
 
@@ -91,8 +117,57 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+}
+
+/* Game animations */
+@keyframes grow {
+  0% { 
+    transform: scale(0) rotate(-10deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1) rotate(5deg);
+  }
+  100% { 
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
   }
 }
+
+@keyframes pulse-life {
+  0%, 100% { 
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+/* Game-specific utility classes */
+.animate-grow { animation: var(--animation-grow); }
+.animate-pulse-life { animation: var(--animation-pulse); }
+.animate-float { animation: var(--animation-float); }
+.animate-sparkle { animation: sparkle 1.5s ease-in-out infinite; }
+
+.shadow-growth { box-shadow: var(--shadow-growth); }
+.shadow-cosmic { box-shadow: var(--shadow-cosmic); }
+.shadow-card { box-shadow: var(--shadow-card); }
+
+.bg-gradient-growth { background: var(--gradient-growth); }
+.bg-gradient-cosmic { background: var(--gradient-cosmic); }
+.bg-gradient-life { background: var(--gradient-life); }
 
 @layer base {
   * {
